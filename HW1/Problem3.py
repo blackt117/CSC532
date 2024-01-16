@@ -73,9 +73,42 @@ for i in range(10000):
 
 print()
 
+def merge_book(list1,p,q,r):
+    n1 = q - p + 1
+    n2 = r - q
+    R = [0] * (n1 + 1)
+    L = [0] * (n2 + 1)
+    for i in range(n1):
+        L[i] = list1[p+i]
+    for j in range(n2):
+        print('t')
+        R[j] = list1[q+j+1]
+
+    #L[n1] = float('inf')
+    #R[n2] = float('inf')
+    i = 0
+    j = 0
+    for k in range(p,r+1):
+        print('t')
+        if L[i] <= R[j]:
+            list1[k] = L[i]
+            i +=1
+        else:
+            list1[k] = R[j]
+            j+=1
+
+def merge_sort_book(list1,p,r):
+    if p < r:
+        q = (p+r)//2
+        merge_sort_book(list1,p,q)
+        merge_sort_book(list1,q+1,r)
+        merge_book(list1,p,q,r)
+
+
+list4 = [1,-5,3]
 insert_sort_book(list2)
 starttime1 = time.perf_counter()
-merge_sert(list3)
+merge_sort_book(list4,0,len(list4))
 endtime1 = time.perf_counter()
 print(endtime1 - starttime1)
 
