@@ -1,3 +1,5 @@
+import random
+import time
 def merge_sert(list1):
     if len(list1) > 1:
         mid = len(list1)//2
@@ -50,6 +52,7 @@ def rec_max(list1):
 
 
 def insert_sort_book(list1):
+    starttime = time.perf_counter()
     for i in range(1,len(list1)):
         key = list1[i]
         j = i - 1
@@ -57,3 +60,23 @@ def insert_sort_book(list1):
             list1[j+1] = list1[j]
             j-=1
         list1[j+1] = key
+    endtime = time.perf_counter()
+    print(endtime - starttime)
+
+list2 = []
+list3 = []
+for j in range(10000):
+    list3.append(random.randint(0,100))
+for i in range(10000):
+    list2.append(random.randint(0,100))
+
+print()
+
+insert_sort_book(list2)
+starttime1 = time.perf_counter()
+merge_sert(list3)
+endtime1 = time.perf_counter()
+print(endtime1 - starttime1)
+
+
+
