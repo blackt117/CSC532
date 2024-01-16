@@ -63,6 +63,7 @@ def insert_sort_book(list1):
     endtime = time.perf_counter()
     print(endtime - starttime)
 
+
 list2 = []
 list3 = []
 for j in range(10000):
