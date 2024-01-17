@@ -52,7 +52,6 @@ def rec_max(list1):
 
 
 def insert_sort_book(list1):
-    starttime = time.perf_counter()
     for i in range(1,len(list1)):
         key = list1[i]
         j = i - 1
@@ -60,18 +59,8 @@ def insert_sort_book(list1):
             list1[j+1] = list1[j]
             j-=1
         list1[j+1] = key
-    endtime = time.perf_counter()
-    print(endtime - starttime)
 
 
-list2 = []
-list3 = []
-for j in range(10000):
-    list3.append(random.randint(0,100))
-for i in range(10000):
-    list2.append(random.randint(0,100))
-
-print()
 
 def merge_book(list1,p,q,r):
     n1 = q - p + 1
@@ -104,14 +93,37 @@ def merge_sort_book(list1,p,r):
 
 
 list4 = [1,-5,3]
-insert_sort_book(list2)
-starttime1 = time.perf_counter()
-merge_sort_book(list3,0,len(list3)-1)
-endtime1 = time.perf_counter()
-print(endtime1 - starttime1)
-print(list4)
-list5 = [0] * 5
-print(list5)
+
+list2 = []
+list3 = []
+# for i in range(100,10001,250):
+#     for j in range(i):
+#         list3.append(random.randint(0,100))
+#     starttime = time.perf_counter()
+#     insert_sort_book(list3)
+#     endtime = time.perf_counter()
+#     print(i, '\t', endtime - starttime )
+
+
+for t in range(100,10001,250):
+    for s in range(t):
+        list2.append(random.randint(0,100))
+    print(list2)
+    starttime_merge = time.perf_counter()
+    merge_sort_book(list2,0,len(list2)-1)
+    endtime_merge = time.perf_counter()
+    print(t,'\t', endtime_merge - starttime_merge)
+
+
+
+# insert_sort_book(list2)
+# starttime1 = time.perf_counter()
+# merge_sort_book(list3,0,len(list3)-1)
+# endtime1 = time.perf_counter()
+# print(endtime1 - starttime1)
+# print(list4)
+# list5 = [0] * 5
+# print(list5)
 
 
 
