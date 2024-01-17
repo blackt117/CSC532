@@ -92,7 +92,10 @@ def merge_sort_book(list1,p,r):
         merge_book(list1,p,q,r)
 
 
-list4 = [1,-5,3]
+list4 = [1,-5]
+merge_sort_book(list4,0,len(list4)-1)
+print(list4)
+print()
 
 list2 = []
 list3 = []
@@ -109,10 +112,30 @@ for t in range(100,10001,250):
     for s in range(t):
         list2.append(random.randint(0,100))
     starttime_merge = time.perf_counter()
-    merge_sert(list2)
+    merge_sort_book(list2,0,len(list2)-1)
     endtime_merge = time.perf_counter()
     print(t,'\t', endtime_merge - starttime_merge)
 
+
+print()
+print("For sorted lists/MergeSort")
+for y in range(100,10001,250):
+    list2 = [5] * y
+    starttime_merge_sort = time.perf_counter()
+    merge_sort_book(list2,0,len(list2)-1)
+    endtime_merge_sort = time.perf_counter()
+    print(y,'\t',endtime_merge_sort-starttime_merge_sort)
+
+
+print()
+print()
+print("For sorted lists/InserSort")
+for y in range(100,10001,250):
+    list2 = [5] * y
+    starttime_insert_sort = time.perf_counter()
+    insert_sort_book(list2)
+    endtime_insert_sort = time.perf_counter()
+    print(y,'\t',endtime_insert_sort-starttime_insert_sort)
 
 
 # insert_sort_book(list2)
