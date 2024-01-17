@@ -108,9 +108,8 @@ list3 = []
 for t in range(100,10001,250):
     for s in range(t):
         list2.append(random.randint(0,100))
-    print(list2)
     starttime_merge = time.perf_counter()
-    merge_sort_book(list2,0,len(list2)-1)
+    merge_sert(list2)
     endtime_merge = time.perf_counter()
     print(t,'\t', endtime_merge - starttime_merge)
 
