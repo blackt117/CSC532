@@ -148,6 +148,14 @@ for t in range(100,10001,250):
 # list5 = [0] * 5
 # print(list5)
 
+list4 = []
+for u in range(100):
+    list4.append(random.randint(-100,100))
+print()
+print(list4)
+merge_sort_book(list4,0,len(list4)-1)
+print(list4)
+
 
 
 
