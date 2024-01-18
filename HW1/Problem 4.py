@@ -1,4 +1,5 @@
 import random
+import time
 def max_subarray_crossing_book(list1,low,mid,high):
     left_sum = float('-inf')
     sum = 0
@@ -51,7 +52,20 @@ list2 = []
 for i in range(10):
     list2.append(random.randint(-10,20))
 
-print(list2)
-print(brute_force_maxarray(list2))
-print(find_max_subarray_book(list2,0,len(list2)-1))
+# print(list2)
+# print(brute_force_maxarray(list2))
+# print(find_max_subarray_book(list2,0,len(list2)-1))
+
+
+for i in range(100,10001,500):
+    list3 =[]
+    for y in range(i):
+        list3.append(random.randint(-1000,1000))
+    starttime = time.perf_counter()
+    brute_force_maxarray(list3)
+    endtime = time.perf_counter()
+    print(i, '\t', endtime-starttime)
+
+
+
 

@@ -65,15 +65,15 @@ def insert_sort_book(list1):
 def merge_book(list1,p,q,r):
     n1 = q - p + 1
     n2 = r - q
-    R = []
-    L = []
+    R = [0] * (n2 +1)
+    L = [0] * (n1 + 1)
     for i in range(n1):
-        L.append(list1[p+i])
+        L[i] = list1[p+i]
     for j in range(n2):
-        R.append(list1[q+j+1])
+        R[j] = list1[q+j+1]
 
-    L.append(float('inf'))
-    R.append(float('inf'))
+    L[n1] = float('inf')
+    R[n2] = float('inf')
     i = 0
     j = 0
     for k in range(p,r+1):
@@ -112,30 +112,31 @@ for t in range(100,10001,250):
     for s in range(t):
         list2.append(random.randint(0,100))
     starttime_merge = time.perf_counter()
+    #merge_sert(list2)
     merge_sort_book(list2,0,len(list2)-1)
     endtime_merge = time.perf_counter()
     print(t,'\t', endtime_merge - starttime_merge)
 
 
-print()
-print("For sorted lists/MergeSort")
-for y in range(100,10001,250):
-    list2 = [5] * y
-    starttime_merge_sort = time.perf_counter()
-    merge_sort_book(list2,0,len(list2)-1)
-    endtime_merge_sort = time.perf_counter()
-    print(y,'\t',endtime_merge_sort-starttime_merge_sort)
-
-
-print()
-print()
-print("For sorted lists/InserSort")
-for y in range(100,10001,250):
-    list2 = [5] * y
-    starttime_insert_sort = time.perf_counter()
-    insert_sort_book(list2)
-    endtime_insert_sort = time.perf_counter()
-    print(y,'\t',endtime_insert_sort-starttime_insert_sort)
+# print()
+# print("For sorted lists/MergeSort")
+# for y in range(100,10001,250):
+#     list2 = [5] * y
+#     starttime_merge_sort = time.perf_counter()
+#     merge_sort_book(list2,0,len(list2)-1)
+#     endtime_merge_sort = time.perf_counter()
+#     print(y,'\t',endtime_merge_sort-starttime_merge_sort)
+#
+#
+# print()
+# print()
+# print("For sorted lists/InserSort")
+# for y in range(100,10001,250):
+#     list2 = [5] * y
+#     starttime_insert_sort = time.perf_counter()
+#     insert_sort_book(list2)
+#     endtime_insert_sort = time.perf_counter()
+#     print(y,'\t',endtime_insert_sort-starttime_insert_sort)
 
 
 # insert_sort_book(list2)
