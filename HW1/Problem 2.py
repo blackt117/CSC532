@@ -32,10 +32,10 @@ for i in range(1):
 
 def mystery5(n):
     if n <= 1:
-        #print('i')
+        print('i')
         return n
     else:
-        #print('i')
+        print('i')
         return n*mystery5(n-1)
 
 def mystery6(myList):
@@ -44,14 +44,14 @@ def mystery6(myList):
         reversedList.insert(0, myList[j])
     return reversedList
 
-# list4 = []
-# for i in range(100,10000,150):
-#     for j in range(i):
-#         list4.append(random.randint(0,100))
-#     starttime = time.perf_counter()
-#     mystery6(list4)
-#     endtime = time.perf_counter()
-#     print(i,'\t', endtime-starttime)
+list4 = []
+for i in range(100,10000,150):
+    for j in range(i):
+        list4.append(random.randint(0,100))
+    starttime = time.perf_counter()
+    mystery6(list4)
+    endtime = time.perf_counter()
+    print(i,'\t', endtime-starttime)
 
 def mystery4(n):
     c = 1
@@ -61,8 +61,10 @@ def mystery4(n):
         c += 1
         k = 2 * k
         i +=1
-    #print(i)
+    print(i)
     return c
+mystery4(1024)
+mystery5(5)
 
 # for i in range(250,10000,100):
 #     starttime = time.perf_counter()
@@ -94,12 +96,12 @@ def interpolationSearch(arr, lo, hi, x):
                                        pos - 1, x)
     return -1
 list1 = []
-for i in range(1000,50000,200):
-    for j in range(i):
-        list1.append(random.randint(0, 100))
-    list1.sort()
-    starttime = time.perf_counter()
-    interpolationSearch(list1,0,len(list1)-1,50)
-    endtime = time.perf_counter()
-    print(i,'\t', endtime-starttime)
+# for i in range(1000,50000,200):
+#     for j in range(i):
+#         list1.append(random.randint(0, 100))
+#     list1.sort()
+#     starttime = time.perf_counter()
+#     interpolationSearch(list1,0,len(list1)-1,50)
+#     endtime = time.perf_counter()
+#     print(i,'\t', endtime-starttime)
 
