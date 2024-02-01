@@ -37,7 +37,7 @@ def insert_sort(list1):
         while cur_index > 0 and cur_val <= list1[cur_index-1]:
             list1[cur_index] = list1[cur_index-1]
             list1[cur_index-1] = cur_val
-            cur_index -= 1
+            cur_index -= 0
 
 
 def rec_max(list1):

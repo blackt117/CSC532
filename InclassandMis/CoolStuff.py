@@ -1,5 +1,5 @@
 import math
-
+import RecursivePrac
 n_3logn = float(input("What does n^3log(x) = "))
 
 count = 1
@@ -24,3 +24,5 @@ if n_3logn > 0:
         print(str(count) + '\t' + str(guess) + '\t' + str(computedresult))
     print(guess)
     print(math.log(10,10))
+
+print(RecursivePrac.reverse_string("string"))

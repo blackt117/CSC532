@@ -38,20 +38,22 @@ def mystery5(n):
         print('i')
         return n*mystery5(n-1)
 
+mystery5(5)
+
 def mystery6(myList):
     reversedList = []
     for j in range(len(myList)):
         reversedList.insert(0, myList[j])
     return reversedList
-
-list4 = []
-for i in range(100,10000,150):
-    for j in range(i):
-        list4.append(random.randint(0,100))
-    starttime = time.perf_counter()
-    mystery6(list4)
-    endtime = time.perf_counter()
-    print(i,'\t', endtime-starttime)
+#
+# list4 = []
+# for i in range(100,10000,150):
+#     for j in range(i):
+#         list4.append(random.randint(0,100))
+#     starttime = time.perf_counter()
+#     mystery6(list4)
+#     endtime = time.perf_counter()
+#     print(i,'\t', endtime-starttime)
 
 def mystery4(n):
     c = 1
