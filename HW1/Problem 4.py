@@ -37,9 +37,11 @@ def find_max_subarray_book(list1,low,high):
 
 def brute_force_maxarray(list1):
     sum_max = float('-inf')
-    for i in range(len(list1)-1):
-        sum_sub = list1[i]
-        for j in range(i+1,len(list1)):
+    low_index = 0
+    right_index = 0
+    for i in range(len(list1)):
+        sum_sub = 0
+        for j in range(i,len(list1)):
             sum_sub = sum_sub + list1[j]
             if sum_sub > sum_max:
                 sum_max = sum_sub
@@ -49,8 +51,8 @@ def brute_force_maxarray(list1):
 
 
 list2 = []
-for i in range(10):
-    list2.append(random.randint(-10,20))
+# for i in range(1):
+#     list2.append(random.randint(-10,20))
 
 print(list2)
 print(brute_force_maxarray(list2))
