@@ -50,8 +50,8 @@ def brute_force_maxarray(list1):
     return (low_index,right_index,sum_max)
 
 
-list2 = []
-# for i in range(1):
+list2 = [0,5,5]
+# for i in range(2):
 #     list2.append(random.randint(-10,20))
 
 print(list2)
