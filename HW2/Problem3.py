@@ -1,3 +1,6 @@
+import random
+
+
 def Partition(list1,p,r):
     x = list1[r]
     i = p - 1
@@ -15,6 +18,9 @@ def quicksort_rightmost(list1,p,r):
         quicksort_rightmost(list1,q+1,r)
 
 
-list1 = [0,-5,9,8,7]
+list1=[]
+for i in range(0):
+    list1.append(random.randint(-10,10))
+print(list1)
 quicksort_rightmost(list1,0,len(list1)-1)
-#print(list1)
+print(list1)
