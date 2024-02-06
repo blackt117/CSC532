@@ -17,7 +17,7 @@ def median_quicksort(A,p,r):
         median_quicksort(A,q+1,r)
 
 list1 = []
-for i in range(0,4):
+for i in range(7):
     list1.append(random.randint(-10,20))
 print(list1)
 median_quicksort(list1,0,len(list1)-1)
