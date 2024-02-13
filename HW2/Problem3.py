@@ -19,7 +19,7 @@ def quicksort_rightmost(list1,p,r):
 
 
 list1=[]
-for i in range(0):
+for i in range(10):
     list1.append(random.randint(-10,10))
 print(list1)
 quicksort_rightmost(list1,0,len(list1)-1)

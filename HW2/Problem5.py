@@ -1,5 +1,6 @@
 import random
-import Problem3
+from Problem3 import Partition
+import itertools
 
 def median_partition(A,p,r):
     print(A[r])
@@ -10,7 +11,7 @@ def median_partition(A,p,r):
     else:
         A[p],A[r] = A[r],A[p]
     print(A[r])
-    return Problem3.Partition(A,p,r)
+    return Partition(A,p,r)
 
 def median_quicksort(A,p,r):
     if p < r:
@@ -18,9 +19,11 @@ def median_quicksort(A,p,r):
         median_quicksort(A,p,q-1)
         median_quicksort(A,q+1,r)
 
+
 list1 = []
 for i in range(3):
     list1.append(random.randint(-10,20))
+perms = itertools.permutations(list1)
 print(list1)
 median_quicksort(list1,0,len(list1)-1)
 print(list1)
