@@ -28,8 +28,11 @@ def max_heapify(list1,i):
         max_heapify(list1,largest)
 
 def build_max_heap(list1):
-    for i in range((len(list1.heap)//2)-1,0,-1):
-       #list1.size = len(list1.heap)
+    print('t')
+    z = len(list1.heap)
+    z = (z//2)
+    for i in range(z,0,-1):
+        print('t')
         max_heapify(list1,i)
 
 def heapsort(list1):
@@ -40,8 +43,9 @@ def heapsort(list1):
         max_heapify(list1,1)
 
 list1 = [None]
-for i in range(20):
+for i in range(2):
     list1.append(random.randint(0,100))
 A=heap(list1,len(list1)-1)
+print(A.heap)
 heapsort(A)
 print(A.heap)
