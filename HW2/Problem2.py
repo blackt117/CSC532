@@ -17,22 +17,20 @@ def right_child(i):
 def max_heapify(list1,i):
     l = left_child(i)
     r = right_child(i)
-    if l <= list1.size and list1.heap[l] < list1.heap[i]:
+    if l <= list1.size and list1.heap[l] > list1.heap[i]:
         largest = l
     else:
         largest = i
-    if r <= list1.size and list1.heap[r] < list1.heap[largest]:
+    if r <= list1.size and list1.heap[r] > list1.heap[largest]:
         largest = r
     if largest != i:
         list1.heap[i],list1.heap[largest] = list1.heap[largest],list1.heap[i]
         max_heapify(list1,largest)
 
 def build_max_heap(list1):
-    print('t')
     z = len(list1.heap)
     z = (z//2)
     for i in range(z,0,-1):
-        print('t')
         max_heapify(list1,i)
 
 def heapsort(list1):
@@ -43,7 +41,7 @@ def heapsort(list1):
         max_heapify(list1,1)
 
 list1 = [None]
-for i in range(2):
+for i in range(3):
     list1.append(random.randint(0,100))
 A=heap(list1,len(list1)-1)
 print(A.heap)
