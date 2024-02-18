@@ -108,14 +108,14 @@ list3 = []
 #     print(i, '\t', endtime - starttime )
 
 
-for t in range(100,10001,250):
-    for s in range(t):
-        list2.append(random.randint(0,100))
-    starttime_merge = time.perf_counter()
-    #merge_sert(list2)
-    merge_sort_book(list2,0,len(list2)-1)
-    endtime_merge = time.perf_counter()
-    print(t,'\t', endtime_merge - starttime_merge)
+# for t in range(100,10001,250):
+#     for s in range(t):
+#         list2.append(random.randint(0,100))
+#     starttime_merge = time.perf_counter()
+#     #merge_sert(list2)
+#     merge_sort_book(list2,0,len(list2)-1)
+#     endtime_merge = time.perf_counter()
+#     print(t,'\t', endtime_merge - starttime_merge)
 
 
 # print()
@@ -149,7 +149,7 @@ for t in range(100,10001,250):
 # print(list5)
 
 list4 = []
-for u in range(100):
+for u in range(10):
     list4.append(random.randint(-100,100))
 print()
 print(list4)

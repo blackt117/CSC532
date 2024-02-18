@@ -3,7 +3,6 @@ from Problem3 import Partition
 import itertools
 
 def median_partition(A,p,r):
-    print(A[r])
     if (A[p] >= A[(p+r)//2] and A[(p+r)//2] >= A[r]) or (A[r] >= A[(p+r)//2] and A[p] <= A[(p+r)//2]):
         A[r],A[(p+r)//2] = A[(p+r)//2], A[r]
     elif (A[r] >= A[(p+r)//2] and A[r] <= A[p]) or (A[r] >= A[p] and A[r] <= A[(p+r)//2]):

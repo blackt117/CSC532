@@ -41,7 +41,7 @@ def heapsort(list1):
         max_heapify(list1,1)
 
 list1 = [None]
-for i in range(3):
+for i in range(2):
     list1.append(random.randint(0,100))
 A=heap(list1,len(list1)-1)
 print(A.heap)
