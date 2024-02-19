@@ -9,7 +9,6 @@ def median_partition(A,p,r):
         A[r],A[r] = A[r],A[r]
     else:
         A[p],A[r] = A[r],A[p]
-    print(A[r])
     return Partition(A,p,r)
 
 def median_quicksort(A,p,r):
@@ -20,7 +19,7 @@ def median_quicksort(A,p,r):
 
 
 list1 = []
-for i in range(3):
+for i in range(10):
     list1.append(random.randint(-10,20))
 perms = itertools.permutations(list1)
 print(list1)
