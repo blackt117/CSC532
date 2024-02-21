@@ -18,9 +18,9 @@ def quicksort_rightmost(list1,p,r):
         quicksort_rightmost(list1,q+1,r)
 
 
-list1=[]
-for i in range(10):
-    list1.append(random.randint(-10,10))
-print(list1)
-quicksort_rightmost(list1,0,len(list1)-1)
-print(list1)
+# list1=[]
+# for i in range(100000):
+#     list1.append(random.randint(-1000000,1000000))
+# print(list1)
+# quicksort_rightmost(list1,0,len(list1)-1)
+# print(list1)

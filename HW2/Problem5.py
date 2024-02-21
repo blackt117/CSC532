@@ -1,15 +1,29 @@
 import random
 from Problem3 import Partition
+from Problem3 import quicksort_rightmost
 import itertools
+import time
 
 def median_partition(A,p,r):
-    if (A[p] >= A[(p+r)//2] and A[(p+r)//2] >= A[r]) or (A[r] >= A[(p+r)//2] and A[p] <= A[(p+r)//2]):
-        A[r],A[(p+r)//2] = A[(p+r)//2], A[r]
-    elif (A[r] >= A[(p+r)//2] and A[r] <= A[p]) or (A[r] >= A[p] and A[r] <= A[(p+r)//2]):
-        A[r],A[r] = A[r],A[r]
-    else:
-        A[p],A[r] = A[r],A[p]
-    return Partition(A,p,r)
+    if r - p >= 3:
+
+        m = (p + r) // 2
+        if (A[p] >= A[m] and A[m] >= A[r]) or (A[r] >= A[m] and A[p] <= A[m]):
+            A[r], A[m] = A[m], A[r]
+
+        elif (A[r] >= A[m] and A[r] <= A[p]) or (A[r] >= A[p] and A[r] <= A[m]):
+            pass  # A[r],A[r] = A[r],A[r]
+        else:
+            A[p], A[r] = A[r], A[p]
+    return Partition(A, p, r)
+    # if (A[p] >= A[(p+r)//2] and A[(p+r)//2] >= A[r]) or (A[r] >= A[(p+r)//2] and A[p] <= A[(p+r)//2]):
+    #     A[r],A[(p+r)//2] = A[(p+r)//2], A[r]
+    # elif (A[r] >= A[(p+r)//2] and A[r] <= A[p]) or (A[r] >= A[p] and A[r] <= A[(p+r)//2]):
+    #     A[r]=A[r]
+    # else:
+    #     A[p],A[r] = A[r],A[p]
+    # print(A[r])
+    # return Partition(A,p,r)
 
 def median_quicksort(A,p,r):
     if p < r:
@@ -18,10 +32,24 @@ def median_quicksort(A,p,r):
         median_quicksort(A,q+1,r)
 
 
-list1 = []
-for i in range(10):
-    list1.append(random.randint(-10,20))
-perms = itertools.permutations(list1)
-print(list1)
-median_quicksort(list1,0,len(list1)-1)
-print(list1)
+print("N","\t","Median","\t","Rightmost")
+for i in range(100,100000,500):
+    list1 = []
+    list2 =[]
+    for s in range(i):
+        list1.append(random.randint(-100000,20000000))
+        list2.append(random.randint(-100000,2000000))
+    start_time_median = time.perf_counter()
+    median_quicksort(list1,0,len(list1)-1)
+    end_time_median = time.perf_counter()
+    start_time_right = time.perf_counter()
+    quicksort_rightmost(list2,0,len(list2)-1)
+    end_time_right = time.perf_counter()
+    print(i,"\t", end_time_median-start_time_median,"\t",end_time_right-start_time_right)
+
+# list1 = []
+# for i in range(3):
+#     list1.append(random.randint(-10,100))
+# print(list1)
+# median_quicksort(list1,0,len(list1)-1)
+# print(list1)

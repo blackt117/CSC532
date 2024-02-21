@@ -148,13 +148,13 @@ list3 = []
 # list5 = [0] * 5
 # print(list5)
 
-list4 = []
-for u in range(10):
-    list4.append(random.randint(-100,100))
-print()
-print(list4)
-merge_sort_book(list4,0,len(list4)-1)
-print(list4)
+# list4 = []
+# for u in range(10):
+#     list4.append(random.randint(-100,100))
+# print()
+# # print(list4)
+# merge_sort_book(list4,0,len(list4)-1)
+# print(list4)
 
 
 
