@@ -3,6 +3,8 @@ from Problem3 import Partition
 from Problem3 import quicksort_rightmost
 import itertools
 import time
+from Problem4 import randomized_quicksort
+from Problem4 import randomized_partition
 
 def median_partition(A,p,r):
     if r - p >= 3:
@@ -32,20 +34,25 @@ def median_quicksort(A,p,r):
         median_quicksort(A,q+1,r)
 
 
-print("N","\t","Median","\t","Rightmost")
-for i in range(100,100000,500):
+print("N","\t","Median","\t","Rightmost","\t", 'Random')
+for i in range(100,100000,950):
     list1 = []
     list2 =[]
+    list3 =[]
     for s in range(i):
         list1.append(random.randint(-100000,20000000))
         list2.append(random.randint(-100000,2000000))
+        list3.append(random.randint(-100000,2000000))
     start_time_median = time.perf_counter()
     median_quicksort(list1,0,len(list1)-1)
     end_time_median = time.perf_counter()
     start_time_right = time.perf_counter()
     quicksort_rightmost(list2,0,len(list2)-1)
     end_time_right = time.perf_counter()
-    print(i,"\t", end_time_median-start_time_median,"\t",end_time_right-start_time_right)
+    start_time_random = time.perf_counter()
+    randomized_quicksort(list3,0,len(list3)-1)
+    end_time_random = time.perf_counter()
+    print(i,"\t", end_time_median-start_time_median,"\t",end_time_right-start_time_right,"\t", end_time_random-start_time_random)
 
 # list1 = []
 # for i in range(3):
