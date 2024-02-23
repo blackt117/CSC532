@@ -19,3 +19,11 @@ for i in range(3):
 print(list1)
 randomized_quicksort(list1,0,len(list1)-1)
 print(list1)
+
+list2 =[]
+
+for i in range(10):
+    list2.append(random.uniform(0,1))
+print(list2)
+randomized_quicksort(list2,0,len(list2)-1)
+print(list2)
