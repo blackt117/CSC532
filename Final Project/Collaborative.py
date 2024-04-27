@@ -1,5 +1,9 @@
+import random
+
 import pandas as pd
+from Tools.scripts.dutree import display
 from sklearn.neighbors import NearestNeighbors
+from random import randint
 
 ratings = pd.read_csv('ratings.csv', usecols=['userId', 'movieId', 'rating'])
 movies = pd.read_csv('movies.csv', usecols=['movieId', 'title'])
@@ -7,6 +11,7 @@ ratings2 = pd.merge(ratings, movies, how='inner', on='movieId')
 
 df = ratings2.pivot_table(index='title', columns='userId', values='rating').fillna(0)
 df1 = df.copy()
+
 
 
 def recommend_movies(user, num_recommended_movies):
@@ -18,19 +23,35 @@ def recommend_movies(user, num_recommended_movies):
     print('\n')
 
     recommended_movies = []
-
+    recommended_movies_real = []
     for m in df[df[user] == 0].index.tolist():
         index_df = df.index.tolist().index(m)
         predicted_rating = df1.iloc[index_df, df1.columns.tolist().index(user)]
         recommended_movies.append((m, predicted_rating))
+        recommended_movies_real.append([m,random.randint(1,5)])
+
 
     sorted_rm = sorted(recommended_movies, key=lambda x: x[1], reverse=True)
 
+    pred_ratings =[]
+    real_ratings =[]
     print('The list of the Recommended Movies \n')
     rank = 1
     for recommended_movie in sorted_rm[:num_recommended_movies]:
         print('{}: {} - predicted rating:{}'.format(rank, recommended_movie[0], recommended_movie[1]))
         rank = rank + 1
+        pred_ratings.append(recommended_movie[1])
+        for i in recommended_movies_real:
+            if recommended_movie[0] == i[0]:
+                real_ratings.append(i[1])
+                print('{} - predicted rating:{}'.format(i[0], i[1]))
+
+
+    print()
+    print()
+    print(pred_ratings)
+    print(real_ratings)
+    return(pred_ratings,real_ratings)
 
 
 def movie_recommender(user, num_neighbors, num_recommendation):
@@ -82,7 +103,8 @@ def movie_recommender(user, num_neighbors, num_recommendation):
                 predicted_r = 0
 
             df1.iloc[m, user_index] = predicted_r
-    recommend_movies(user, num_recommendation)
+    pred, real = recommend_movies(user, num_recommendation)
+    return (pred,real)
 
-
-movie_recommender(15, 10, 10)
+pred, real = movie_recommender(15, 10, 10)
+print(pred)
