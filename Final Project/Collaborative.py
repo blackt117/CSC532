@@ -4,6 +4,7 @@ import pandas as pd
 from Tools.scripts.dutree import display
 from sklearn.neighbors import NearestNeighbors
 from random import randint
+from sklearn.metrics import mean_absolute_error
 
 ratings = pd.read_csv('ratings.csv', usecols=['userId', 'movieId', 'rating'])
 movies = pd.read_csv('movies.csv', usecols=['movieId', 'title'])
@@ -106,5 +107,13 @@ def movie_recommender(user, num_neighbors, num_recommendation):
     pred, real = recommend_movies(user, num_recommendation)
     return (pred,real)
 
-pred, real = movie_recommender(15, 10, 10)
-print(pred)
+
+mae_list = []
+for i in range(1,16):
+    pred, real = movie_recommender(i, 10, 10)
+    mae = mean_absolute_error(real,pred)
+    mae_list.append(mae)
+
+print(sum(mae_list)/15)
+
+
